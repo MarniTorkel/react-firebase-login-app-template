@@ -1,11 +1,13 @@
-import React from "react";
-import { Routes } from "./Routes";
-import './App.css';
+import React from 'react';
+import { Routes } from './Routes';
+import { useUsers } from './auth';
 
 function App() {
+  const { isLoading, user } = useUsers();
+
   return (
     <div className="App">
-      <Routes />
+      <Routes isLoading={isLoading} user={user} />
     </div>
   );
 }
